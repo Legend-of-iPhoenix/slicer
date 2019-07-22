@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>slicer</title>
+
+  <!-- autoinserted ga script -->
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-109579764-3"></script> <script>window.dataLayer=window.dataLayer || []; function gtag(){dataLayer.push(arguments)}gtag("js", new Date), gtag("config", "UA-109579764-3")</script>
+
+
+  <script src="core/coretypes.js"></script>
+  <script src="stlparser/parser.js"></script>
+  <script src="core/slicehandler.js"></script>
+  <script src="ui.js"></script>
+</head>
+<body>
+  <h1> How to use: </h1>
+  <ol>
+    <li> Get an STL file off of thingiverse or something. </li>
+    <li> Convert it to an ASCII STL file (as opposed to a binary STL file) using a website like <a href="https://www.meshconvert.com/">this one</a>. (binary STL support coming soon)</li>
+    <li> Load it into the file input below. Wait a little bit, your browser will become unresponsive while the STL parses. 
+      <ul>
+        <li> If this takes longer than a few seconds, send me a link to your STL file. </li>
+        <li> TO-DO: delegate this to a webworker or something so it happens asynchonously and doesn't freeze. </li>
+      </ul>
+    </li>
+    <li> Press "Go!" </li>
+  </ol>
+  <button onclick="animateSTL()">Go</button>
+  <input type="file" id="fileInput" oninput="loadSTL()" accept=".stl">
+  <span id="parsingUpdates"></span>
+  <br>
+  <canvas></canvas>
+  <p id="frameInfo" style="visibility: hidden;"> Displaying layer at <span id="layerNumber"></span>mm. </p>
+</body>
+</html>
